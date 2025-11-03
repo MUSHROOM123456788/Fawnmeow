@@ -5,7 +5,7 @@ body {
     font-family: 'Times New Roman', serif;
     overflow-y: auto; /* enable vertical scrolling */
     position: relative;
-    min-height: 100vh; /* ensure full page height */
+    min-height: 100vh;
 }
 
 /* Title */
@@ -44,10 +44,10 @@ h1 {
 .medium { width: 250px; height: 250px; }
 .large { width: 350px; height: 350px; }
 
-/* Button */
+/* Seal button */
 .next-page-btn {
     display: block;
-    margin: 30px auto;
+    margin: 30px auto 60px auto;
     font-size: 80px;
     cursor: pointer;
     background: none;
@@ -58,7 +58,7 @@ h1 {
 
 /* Emoji container */
 .emoji-circle {
-    position: absolute; /* allow page to scroll */
+    position: absolute; /* relative to page content */
     top: 0;
     left: 0;
     width: 100%;
