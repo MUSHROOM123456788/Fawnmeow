@@ -1,9 +1,11 @@
+/* Body */
 body {
     margin: 0;
-    padding: 0;
-    background-color: #ffcce0; /* baby pink */
+    padding: 20px;
+    background-color: #ffcce6; /* soft pink */
     font-family: 'Times New Roman', serif;
-    overflow-y: auto;
+    color: white;
+    overflow-y: scroll;
     position: relative;
     min-height: 100vh;
 }
@@ -11,49 +13,49 @@ body {
 /* Title */
 h1 {
     text-align: center;
-    color: white;
     font-size: 28px;
-    margin: 20px 0;
+    margin-bottom: 30px;
 }
 
 /* Photo grid */
 .photo-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    margin: 30px 0;
+    justify-items: center;
+    margin-bottom: 50px;
 }
 
 /* Photo boxes */
 .photo-box {
-    border: 3px solid #333;
+    border: 3px solid white;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    background-color: white; /* visible border background */
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 10px;
 }
 
 .photo-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* fills the box without stretching */
+    object-fit: cover;
 }
 
 /* Sizes */
-.small { width: 150px; height: 150px; }
-.medium { width: 250px; height: 250px; }
-.large { width: 350px; height: 350px; }
+.small { width: 120px; height: 120px; }
+.medium { width: 180px; height: 180px; }
+.large { width: 240px; height: 240px; }
 
-/* Seal button */
+/* Seal Button */
 .next-page-btn {
     display: block;
     margin: 40px auto 60px auto;
     font-size: 80px;
-    cursor: pointer;
     background: none;
     border: none;
+    cursor: pointer;
     position: relative;
     z-index: 10;
 }
