@@ -1,4 +1,4 @@
-// Navigate to Emo page
+// Seal button navigation
 document.getElementById('seal-btn').addEventListener('click', () => {
     window.location.href = 'emo.html';
 });
@@ -17,7 +17,7 @@ const emojis = emojiList.map(emoji => {
 let t = 0;
 function animateEmojis() {
     const width = window.innerWidth;
-    const height = document.body.scrollHeight; // covers whole page height
+    const height = document.body.scrollHeight;
     const padding = 30;
 
     emojis.forEach((el, i) => {
