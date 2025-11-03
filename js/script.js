@@ -18,7 +18,7 @@ const emojis = emojiList.map(emoji => {
 let t = 0;
 function animateEmojis() {
     const width = window.innerWidth;
-    const height = window.innerHeight;
+    const height = document.body.scrollHeight; // use body height for scroll
     const padding = 30;
 
     emojis.forEach((el, i) => {
