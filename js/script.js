@@ -1,62 +1,58 @@
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #ffcce0; /* soft baby pink */
-    font-family: 'Times New Roman', serif;
-    overflow: hidden;
-    position: relative;
+// --- Navigate to Emo page ---
+document.getElementById('seal-btn').addEventListener('click', () => {
+    window.location.href = 'emo.html';
+});
+
+// --- Emoji Array ---
+const emojiList = ['🦨','🦊','🦅','🐹','🐈‍⬛','🐰','🦇','🦭','🦭','🦭','🐋','🦦','🦝','🐇','🦔','🌸','🪻','🍓','🍒','⛸️'];
+
+const emojiContainer = document.getElementById('emoji-circle');
+const emojis = [];
+
+// --- Create emoji elements ---
+emojiList.forEach((emoji, i) => {
+    const span = document.createElement('span');
+    span.textContent = emoji;
+    emojiContainer.appendChild(span);
+    emojis.push(span);
+});
+
+// --- Animate emojis in a square around all content ---
+let t = 0;
+function animateEmojis() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const padding = 50; // distance from edge
+
+    emojis.forEach((el, i) => {
+        const total = emojis.length;
+        const phase = (i / total + t/100) % 1; // 0 → 1
+
+        let x=0, y=0;
+        if(phase < 0.25){ // top
+            const p = phase/0.25;
+            x = padding + p*(width-2*padding);
+            y = padding;
+        } else if(phase < 0.5){ // right
+            const p = (phase-0.25)/0.25;
+            x = width-padding;
+            y = padding + p*(height-2*padding);
+        } else if(phase < 0.75){ // bottom
+            const p = (phase-0.5)/0.25;
+            x = width-padding - p*(width-2*padding);
+            y = height-padding;
+        } else { // left
+            const p = (phase-0.75)/0.25;
+            x = padding;
+            y = height-padding - p*(height-2*padding);
+        }
+
+        el.style.left = `${x}px`;
+        el.style.top = `${y}px`;
+    });
+
+    t += 1;
+    requestAnimationFrame(animateEmojis);
 }
 
-/* --- Title --- */
-h1 {
-    text-align: center;
-    color: white;
-    font-family: 'Times New Roman', serif;
-    font-size: 20px;
-    margin: 20px 0;
-}
-
-/* --- Photo Grid --- */
-.photo-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin: 30px 0;
-}
-
-.photo-box {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid #333;
-    font-weight: bold;
-    font-size: 18px;
-    color: black;
-}
-
-/* Sizes */
-.small { width: 100px; height: 100px; }
-.medium { width: 150px; height: 150px; }
-.large { width: 200px; height: 200px; }
-
-/* --- Circular Emoji Container --- */
-.emoji-circle {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 10;
-}
-
-/* --- Button --- */
-.next-page-btn {
-    display: block;
-    margin: 30px auto;
-    font-size: 60px;
-    cursor: pointer;
-    background: none;
-    border: none;
-}
+animateEmojis();
