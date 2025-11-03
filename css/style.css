@@ -1,19 +1,18 @@
-/* --- General Page Styles --- */
 body {
     margin: 0;
     padding: 0;
     background-color: #ffcce0; /* soft baby pink */
     font-family: 'Times New Roman', serif;
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
 }
 
 /* --- Title --- */
 h1 {
     text-align: center;
-    color: white; /* white font */
+    color: white;
     font-family: 'Times New Roman', serif;
-    font-size: 20px; /* medium small */
+    font-size: 20px;
     margin: 20px 0;
 }
 
@@ -31,37 +30,25 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid #fff;
-    overflow: hidden;
+    border: 3px solid #333;
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
 }
 
-/* Top row small */
+/* Sizes */
 .small { width: 100px; height: 100px; }
-/* Middle row medium */
 .medium { width: 150px; height: 150px; }
-/* Bottom row large */
 .large { width: 200px; height: 200px; }
 
 /* --- Circular Emoji Container --- */
 .emoji-circle {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
     z-index: 10;
-}
-
-.emoji-circle span {
-    position: absolute;
-    font-size: 30px;
-    animation: rotateSquare 40s linear infinite;
-}
-
-@keyframes rotateSquare {
-    0% { transform: translate(0,0); }
-    25% { transform: translate(90vw,0); }
-    50% { transform: translate(90vw,90vh); }
-    75% { transform: translate(0,90vh); }
-    100% { transform: translate(0,0); }
 }
 
 /* --- Button --- */
