@@ -1,0 +1,25 @@
+/* --- General Page Styles --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: cursive;
+    text-align: center;
+    color: pink;
+}
+
+/* --- Title --- */
+h1 {
+    font-size: 36px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: pink;
+    font-family: 'Cursive', sans-serif;
+}
+
+/* --- Paragraph --- */
+p {
+    font-size: 20px;
+    color: pink;
+    margin-bottom: 50px;
+}
