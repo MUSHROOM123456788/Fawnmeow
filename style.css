@@ -11,8 +11,9 @@ body {
 /* --- Title --- */
 h1 {
     text-align: center;
-    color: white;
-    font-size: 20px;
+    color: white; /* white font */
+    font-family: 'Times New Roman', serif;
+    font-size: 20px; /* medium small */
     margin: 20px 0;
 }
 
@@ -34,14 +35,14 @@ h1 {
     overflow: hidden;
 }
 
-/* --- Top row small boxes --- */
+/* Top row small */
 .small { width: 100px; height: 100px; }
-/* --- Middle row medium boxes --- */
+/* Middle row medium */
 .medium { width: 150px; height: 150px; }
-/* --- Bottom row large boxes --- */
+/* Bottom row large */
 .large { width: 200px; height: 200px; }
 
-/* --- Circling emojis --- */
+/* --- Circular Emoji Container --- */
 .emoji-circle {
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -51,20 +52,23 @@ h1 {
 
 .emoji-circle span {
     position: absolute;
-    font-size: 24px;
-    animation: rotate 20s linear infinite;
+    font-size: 30px;
+    animation: rotateSquare 40s linear infinite;
 }
 
-@keyframes rotate {
-    0% { transform: rotate(0deg) translate(300px) rotate(0deg); }
-    100% { transform: rotate(360deg) translate(300px) rotate(-360deg); }
+@keyframes rotateSquare {
+    0% { transform: translate(0,0); }
+    25% { transform: translate(90vw,0); }
+    50% { transform: translate(90vw,90vh); }
+    75% { transform: translate(0,90vh); }
+    100% { transform: translate(0,0); }
 }
 
 /* --- Button --- */
 .next-page-btn {
     display: block;
     margin: 30px auto;
-    font-size: 50px;
+    font-size: 60px;
     cursor: pointer;
     background: none;
     border: none;
