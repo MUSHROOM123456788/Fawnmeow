@@ -55,4 +55,7 @@ function animateEmojis() {
     requestAnimationFrame(animateEmojis);
 }
 
-animateEmojis();
+// Run animation after DOM loaded
+document.addEventListener('DOMContentLoaded', () => {
+    animateEmojis();
+});
