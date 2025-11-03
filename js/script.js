@@ -1,47 +1,44 @@
-// --- Navigate to Emo page ---
+// Navigate to Emo page
 document.getElementById('seal-btn').addEventListener('click', () => {
     window.location.href = 'emo.html';
 });
 
-// --- Emoji Array ---
-const emojiList = ['🦨','🦊','🦅','🐹','🐈‍⬛','🐰','🦇','🦭','🦭','🦭','🐋','🦦','🦝','🐇','🦔','🌸','🪻','🍓','🍒','⛸️'];
-
+// Emojis
+const emojiList = ['🦨','🦊','🦅','🐹','🐈‍⬛','🐰','🦇','🦭','🐋','🦦','🦝','🐇','🦔','🌸','🪻','🍓','🍒','⛸️'];
 const emojiContainer = document.getElementById('emoji-circle');
-const emojis = [];
 
-// --- Create emoji elements ---
-emojiList.forEach((emoji, i) => {
+const emojis = emojiList.map(emoji => {
     const span = document.createElement('span');
     span.textContent = emoji;
     emojiContainer.appendChild(span);
-    emojis.push(span);
+    return span;
 });
 
-// --- Animate emojis in a square around all content ---
+// Animate emojis in a square path around all content
 let t = 0;
 function animateEmojis() {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    const padding = 50; // distance from edge
+    const padding = 30;
 
     emojis.forEach((el, i) => {
         const total = emojis.length;
-        const phase = (i / total + t/100) % 1; // 0 → 1
-
+        const phase = (i / total + t / 200) % 1;
         let x=0, y=0;
-        if(phase < 0.25){ // top
-            const p = phase/0.25;
+
+        if(phase < 0.25){
+            const p = phase / 0.25;
             x = padding + p*(width-2*padding);
             y = padding;
-        } else if(phase < 0.5){ // right
+        } else if(phase < 0.5){
             const p = (phase-0.25)/0.25;
             x = width-padding;
             y = padding + p*(height-2*padding);
-        } else if(phase < 0.75){ // bottom
+        } else if(phase < 0.75){
             const p = (phase-0.5)/0.25;
             x = width-padding - p*(width-2*padding);
             y = height-padding;
-        } else { // left
+        } else {
             const p = (phase-0.75)/0.25;
             x = padding;
             y = height-padding - p*(height-2*padding);
@@ -55,7 +52,6 @@ function animateEmojis() {
     requestAnimationFrame(animateEmojis);
 }
 
-// Run animation after DOM loaded
 document.addEventListener('DOMContentLoaded', () => {
     animateEmojis();
 });
